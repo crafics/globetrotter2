@@ -43,7 +43,7 @@ public class Main : MonoBehaviour
         // authenticate user:
         Social.localUser.Authenticate((bool success) => {
         // handle success or failure
-        Debug.Log("OKOKOK");
+        Debug.Log("test2");
         });
     }
 
