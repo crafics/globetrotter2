@@ -3,10 +3,10 @@
 - AppCenter
   - Store Releases
   - Testing
-  - Distribute
+  - Distribute ✅
 - IAP
 - Google Play Games plugin for Unity
-  - sign in
+  - sign in ✅
   - unlock/reveal/increment achievement
   - post score to leaderboard
   - cloud save read/write
