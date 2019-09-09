@@ -1,6 +1,9 @@
 # globetrotter2
 # todos
 - AppCenter
+  - Store Releases
+  - Testing
+  - Distribute
 - IAP
 - Google Play Games plugin for Unity
   - sign in
