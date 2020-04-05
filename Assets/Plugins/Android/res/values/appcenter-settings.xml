@@ -2,9 +2,5 @@
 <resources>
   <string name="appcenter_app_secret" translatable="false">aeb5c590-c317-416f-b91d-97486697f4ab</string>
   <string name="appcenter_initial_log_level" translatable="false">4</string>
-  <string name="appcenter_use_push" translatable="false">True</string>
-  <string name="appcenter_use_analytics" translatable="false">True</string>
-  <string name="appcenter_use_crashes" translatable="false">True</string>
-  <string name="appcenter_use_distribute" translatable="false">True</string>
   <string name="appcenter_startup_type" translatable="false">0</string>
 </resources>

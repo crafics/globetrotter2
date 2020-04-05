@@ -7,8 +7,8 @@ using UnityEditor;
 public class AppCenterSettingsContext : ScriptableObject
 {
     public const string AppCenterPath = "Assets";
-    private const string SettingsPath = AppCenterPath + "/AppCenter/AppCenterSettings.asset";
-    private const string AdvancedSettingsPath = AppCenterPath + "/AppCenter/AppCenterSettingsAdvanced.asset";
+    private const string SettingsPath = AppCenterPath + "/External/AppCenter/AppCenterSettings.asset";
+    private const string AdvancedSettingsPath = AppCenterPath + "/External/AppCenter/AppCenterSettingsAdvanced.asset";
 
     public static AppCenterSettings SettingsInstance
     {
