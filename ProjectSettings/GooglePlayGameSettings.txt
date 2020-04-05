@@ -1,5 +1,5 @@
-lastUpgrade=01002
-proj.pluginVersion=0.10.02
+lastUpgrade=01008
+proj.pluginVersion=0.10.08
 proj.AppId=553973746413
 and.BundleId=org.dschini.globetrotter2
 proj.classDir=Assets
