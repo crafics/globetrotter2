@@ -91,7 +91,7 @@ namespace Game.Scripts.Matchmaking
             base.Show();
             this.matchmakingGame.matchmakingParams.stringProperties = new Dictionary<string, string>()
             {
-                { "gametype", this.matchmakingGame.gametype }
+                { "scene", this.matchmakingGame.scene }
             };
             await StartMatchmakerAsync();
             /*
@@ -198,14 +198,14 @@ namespace Game.Scripts.Matchmaking
         /// </summary>
         private IEnumerator LoadBattle(IMatchmakerMatched matched)
         {
-            AsyncOperation asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("Quiz1Scene", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+            AsyncOperation asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(matchmakingGame.scene, UnityEngine.SceneManagement.LoadSceneMode.Additive);
 
             while (!asyncLoad.isDone)
             {
                 yield return null;
             }
 
-            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("MainScene");
+            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("_MainScene");
             MatchCommunicationManager.Instance.JoinMatchAsync(matched);
         }
 

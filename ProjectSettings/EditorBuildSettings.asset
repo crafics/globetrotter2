@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/UniverseScene.unity
-    guid: 663c836359c4e4b4886f42e10d1174cb
-  - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/_MainScene.unity
     guid: ffc8e1483ded3b442b90a1deeaff1222
   - enabled: 1
-    path: Assets/Scenes/Quiz1Scene.unity
-    guid: 372f744f33c6d4fd08e4a075fd84e971
+    path: Assets/Scenes/MobileArena.unity
+    guid: e69a7f0d0a04b49ffa4e1785efc1cca4
+  - enabled: 1
+    path: Assets/Scenes/_MobileMenu.unity
+    guid: ad5e083e5d338457cb50ff025b44f2b9
+  - enabled: 1
+    path: Assets/Scenes/MobileGauntlet.unity
+    guid: 7185e420d5037493cab4c2988306fa52
+  - enabled: 1
+    path: Assets/Scenes/MobileShootingRange.unity
+    guid: 0565d7fde4aac4210880fe0b4b7b8749
+  - enabled: 1
+    path: Assets/Scenes/MobileSideScroller.unity
+    guid: 6fd43f2a0dbac4fc0b40e94fb830d22c
   m_configObjects: {}

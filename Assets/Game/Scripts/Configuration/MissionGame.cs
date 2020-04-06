@@ -5,5 +5,6 @@ namespace Game.Scripts.Configuration
     public class MissionGame
     {
         public string name = "Mission";
+        public string scene = "";
     }
 }

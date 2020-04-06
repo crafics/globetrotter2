@@ -62,6 +62,16 @@ namespace Game.Scripts.Configuration
             await ShowAsync();
         }
 
+        private IEnumerator LoadMission(string scene)
+        {
+            AsyncOperation asyncLoad = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scene, UnityEngine.SceneManagement.LoadSceneMode.Additive);
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
+            UnityEngine.SceneManagement.SceneManager.UnloadSceneAsync("_MainScene");
+        }
+
         public async Task<bool> ShowAsync()
         {
 
@@ -70,6 +80,17 @@ namespace Game.Scripts.Configuration
             //GameObject xxx = Instantiate(_gamePrefab, _content.transform) as GameObject;
             //xxx.transform.parent = _content.transform;
             //xxx.transform.SetParent(_content.transform);
+
+            _game.missions.ForEach(delegate (MissionGame _missionGame)
+            {
+                GameObject game = Instantiate(_gamePrefab, _content.transform) as GameObject;
+
+                game.GetComponentInChildren<Text>().text = _missionGame.name;
+                game.GetComponentInChildren<Button>().onClick.AddListener(() =>
+                {
+                    StartCoroutine(LoadMission(_missionGame.scene));
+                });
+            });
 
             _game.matchmaking.ForEach(delegate (MatchmakingGame _matchmakingGame)
             {

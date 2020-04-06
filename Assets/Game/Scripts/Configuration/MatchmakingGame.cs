@@ -9,7 +9,7 @@ namespace Game.Scripts.Configuration
     public class MatchmakingGame
     {
         public string name = "";
-        public string gametype = "";
+        public string scene = "";
         public MatchmakingParams matchmakingParams = null;
     }
 }
