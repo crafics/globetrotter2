@@ -8887,7 +8887,7 @@ MonoBehaviour:
   objective: {fileID: 13880324}
   playerLife: 0
   startPoint: {fileID: 0}
-  mainMenu: _MobileMenu
+  mainMenu: _MainScene
   nextScene: MobileGaunlet
 --- !u!4 &1557837476
 Transform:

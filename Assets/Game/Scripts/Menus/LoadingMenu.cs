@@ -134,6 +134,7 @@ namespace Game.Scripts.Menus
             NakamaSessionManager.Instance.OnNewAccountCreated -= NewAccountCreated;
             NakamaSessionManager.Instance.OnConnectionFailure -= ConnectionFailed;
             MenuManager.Instance.HideTopMenu();
+
             //StartCoroutine(WaitCoroutine());
         }
 

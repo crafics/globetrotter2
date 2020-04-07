@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.010909208, g: 0.010859315, b: 0.038274698, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2183,6 +2183,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9082085125263399002}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1364256290 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2300507139358144521, guid: 2eb1bde7e0387624a9ef3a23df8d267a,
+    type: 3}
+  m_PrefabInstance: {fileID: 9082085125263399002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364256289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38087bf9849b6a48a7e652fb0edc9e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1388479270 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7865231736904793955, guid: 9fe0e229609da8941bd4f6fcbc56596e,
@@ -2869,6 +2881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1678644080}
   - component: {fileID: 1678644082}
+  - component: {fileID: 1678644083}
   - component: {fileID: 1678644081}
   m_Layer: 0
   m_Name: Main Camera
@@ -2908,7 +2921,7 @@ Camera:
   m_GameObject: {fileID: 1678644079}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -2942,6 +2955,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!124 &1678644083
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678644079}
+  m_Enabled: 1
 --- !u!1001 &1719980982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4772,6 +4793,16 @@ PrefabInstance:
       propertyPath: _matchmakingMenu
       value: 
       objectReference: {fileID: 8288585699122558601}
+    - target: {fileID: 7272419273684390227, guid: 2eb1bde7e0387624a9ef3a23df8d267a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1364256290}
+    - target: {fileID: 7272419273684390227, guid: 2eb1bde7e0387624a9ef3a23df8d267a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TEST
+      objectReference: {fileID: 0}
     - target: {fileID: 9082085124262265898, guid: 2eb1bde7e0387624a9ef3a23df8d267a,
         type: 3}
       propertyPath: m_Name

@@ -91,6 +91,13 @@ namespace Game.Scripts.Menus
 
         #endregion
 
+
+        public virtual void TEST()
+        {
+            Debug.Log("TEST");
+            Game.Scripts.Session.NakamaSessionManager.Instance.ConnectGoogle();
+        }
+
     }
 
 }

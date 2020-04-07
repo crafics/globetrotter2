@@ -5142,7 +5142,7 @@ MonoBehaviour:
   objective: {fileID: 0}
   playerLife: 0
   startPoint: {fileID: 0}
-  mainMenu: _MobileMenu
+  mainMenu: _MainScene
   nextScene: MobileSideScroller
 --- !u!4 &1557837476
 Transform:

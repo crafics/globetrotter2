@@ -11,6 +11,9 @@ using Nakama;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UI.Extensions;
+#if UNITY_5_3_OR_NEWER
+using UnityEngine.SceneManagement;
+#endif
 
 namespace Game.Scripts.Configuration
 {
@@ -88,7 +91,13 @@ namespace Game.Scripts.Configuration
                 game.GetComponentInChildren<Text>().text = _missionGame.name;
                 game.GetComponentInChildren<Button>().onClick.AddListener(() =>
                 {
-                    StartCoroutine(LoadMission(_missionGame.scene));
+#if UNITY_5_3_OR_NEWER
+                    SceneManager.LoadScene(_missionGame.scene);
+#else
+			        Application.LoadLevel(sceneName);
+#endif
+                    //SceneManager.LoadScene(_missionGame.scene);
+                    //StartCoroutine(LoadMission(_missionGame.scene));
                 });
             });
 

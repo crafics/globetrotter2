@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Nakama;
 using Game.Scripts.Utils;
+using Game.Scripts.Session;
 using GooglePlayGames;
 using UnityEngine.SocialPlatforms;
 using GooglePlayGames.BasicApi;
@@ -15,8 +16,11 @@ namespace Game.Scripts
     public class SocialManager : Singleton<SocialManager>
     {
         // Start is called before the first frame update
-        void Start()
+        async void Start()
         {
+            //NakamaSessionManager.Instance.ConnectGoogle();
+
+/*
             PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
             // enables saving game progress.
             //.EnableSavedGames()
@@ -42,16 +46,33 @@ namespace Game.Scripts
             // Activate the Google Play Games platform
             PlayGamesPlatform.Activate();
             SignIn();
-            
+*/          
         }
 
         void SignIn()
         {
             // authenticate user:
-            Social.localUser.Authenticate((bool success) => {
-            // handle success or failure
-            Debug.Log("test2");
+            //var session = await client.LinkFacebookAsync(session, accesstoken);
+            //Debug.LogFormat("Session: '{0}'.", session.AuthToken);
+            /*
+            Social.localUser.Authenticate(success => {
+            if (success)
+            {
+                Debug.Log("Authentication successful");
+                string userInfo = "Username: " + Social.localUser.userName +
+                    "\nUser ID: " + Social.localUser.id +
+                    "\nIsUnderage: " + Social.localUser.underage;
+                Debug.Log(userInfo);
+                Debug.Log(Social.localUser);
+            }
+            else
+                Debug.Log("Authentication failed");
             });
+            */
+            //Social.localUser.Authenticate((bool success) => {
+            // handle success or failure
+            //Debug.Log("test2");
+            //});
         }
 
         // Update is called once per frame

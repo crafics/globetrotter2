@@ -19,6 +19,8 @@ using Nakama;
 using System;
 using System.Threading.Tasks;
 //using Facebook.Unity;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 using System.Linq;
 using Game.Scripts.Utils;
 
@@ -543,6 +545,117 @@ namespace Game.Scripts.Session
                 PlayerPrefs.SetString("nakama.authToken", Session.AuthToken);
             }
         }
+
+        #endregion
+
+        #region Google
+
+        public void ConnectGoogle()
+        {
+            /*
+            Debug.Log("NakamaSessionManager.Instance.ConnectGoogle();");
+            if (PlayGamesPlatform.IsInitialized == false)
+            {
+                InitializePlayGamesPlatform();
+            }
+            */
+            InitializePlayGamesPlatform();
+            ActivatePlayGamesPlatform();
+        }
+
+        private void InitializePlayGamesPlatform()
+        {
+
+            // https://github.com/playgameservices/play-games-plugin-for-unity/blob/master/samples/Minimal/Source/Assets/Minimal/MainGui.cs
+
+            PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+            // enables saving game progress.
+            //.EnableSavedGames()
+            // registers a callback to handle game invitations received while the game is not running.
+            //.WithInvitationDelegate(<callback method>)
+            // registers a callback for turn based match notifications received while the
+            // game is not running.
+            //.WithMatchDelegate(<callback method>)
+            // requests the email address of the player be available.
+            // Will bring up a prompt for consent.
+            //.RequestEmail()
+            // requests a server auth code be generated so it can be passed to an
+            //  associated back end server application and exchanged for an OAuth token.
+            .RequestServerAuthCode(true)
+            // requests an ID token be generated.  This OAuth token can be used to
+            //  identify the player to other services such as Firebase.
+            .RequestIdToken()
+            .Build();
+
+            PlayGamesPlatform.InitializeInstance(config);
+            // recommended for debugging:
+            PlayGamesPlatform.DebugLogEnabled = true;
+        }
+
+        private void ActivatePlayGamesPlatform()
+        {
+            // Activate the Google Play Games platform
+            PlayGamesPlatform.Activate();
+
+            if (!Social.localUser.authenticated)
+            {
+                // Authenticate
+                Social.localUser.Authenticate((bool success) =>
+                {
+                    if (success)
+                    {
+                        Debug.Log("Authentication successful");
+                        string userInfo = "Username: " + Social.localUser.userName +
+                            "\nUser ID: " + Social.localUser.id +
+                            "\nIsUnderage: " + Social.localUser.underage;
+                        Debug.Log(userInfo);
+                        Debug.Log(Social.localUser);
+                        authenticateGoogleAsync();
+                    }
+                    else
+                    {
+                        Debug.Log("Authentication failed");
+                    }
+                });
+            }
+            else
+            {
+                // Sign out!
+                ((PlayGamesPlatform) Social.Active).SignOut();
+            }
+            /*
+            const string playerIdToken = "crafics";
+            var session = await client.AuthenticateGoogleAsync(playerIdToken);
+            Debug.LogFormat("New user: {0}, {1}", session.Created, session);
+            var session = await client.LinkFacebookAsync(session, accessToken);
+            Debug.LogFormat("New user: {0}, {1}", session.Created, session);
+            */
+        }
+
+        private async void authenticateGoogleAsync()
+        {
+            //const string playerIdToken = Social.localUser.id;
+            //string googleIdToken = "553973746413-a40p325dc2s3t6mqmtl22bakog1ggp3r.apps.googleusercontent.com"; //((PlayGamesLocalUser)Social.localUser).GetIdToken();
+            //string _userName = Social.Active.localUser.userName;
+            //Debug.Log("_userName:" + _userName);
+            string userName = Social.localUser.userName;
+            //Debug.Log("userName:" + userName);
+
+            //string _playerIdToken = ((PlayGamesLocalUser)Social.localUser).GetIdToken();
+            //Debug.Log("_playerIdToken:" + _playerIdToken);
+            //Debug.Log("playerIdToken:" + playerIdToken);
+            string playerIdToken = ((PlayGamesLocalUser)Social.localUser).GetIdToken();
+            var session = await Client.AuthenticateGoogleAsync(playerIdToken, userName, true);
+            string serverAuthToken = PlayGamesPlatform.Instance.GetServerAuthCode();
+            await Client.LinkGoogleAsync(session, serverAuthToken);
+            //Debug.LogFormat("New user: {0}, {1}", session.Created, session);
+
+            //const string customId = "Google";
+            //await Client.LinkCustomAsync(session, customId);
+            //await Client.LinkGoogleAsync(session, googleIdToken);
+            //Debug.LogFormat("Id '{0}' linked for user '{1}'", customId, session.UserId);
+        }
+
 
         #endregion
 

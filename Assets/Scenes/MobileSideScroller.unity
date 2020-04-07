@@ -7066,7 +7066,7 @@ MonoBehaviour:
   objective: {fileID: 0}
   playerLife: 3
   startPoint: {fileID: 0}
-  mainMenu: _MobileMenu
+  mainMenu: _MainScene
   nextScene: MobileArena
 --- !u!4 &1557837476
 Transform:
